@@ -1,0 +1,123 @@
+/* Wrapper for the entire table with internal scrolling */
+.puantage-table-wrapper {
+  max-width: 100%;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent breaking within cells */
+  padding: 16px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 16px; /* Add spacing from other elements */
+}
+
+/* Table styling */
+.puantage-calendar-table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: auto; /* Allow table to adjust with content */
+  background-color: #fff;
+}
+
+/* Header cells */
+.puantage-calendar-table th {
+  min-width: 80px; /* Set a minimum width for all columns */
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 12px;
+  background-color: var(--light-blue); /* Blue header */
+  color: black;
+  font-weight: bold;
+  position: sticky;
+  top: 0; /* Keep the header row sticky */
+  z-index: 2; /* Ensure header appears above other content */
+  white-space: nowrap;
+}
+
+/* First column styling */
+.puantage-calendar-table td:first-child {
+  background-color: #fff; /* Remove sticky behavior */
+  font-weight: bold;
+  padding: 12px;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Table cells */
+.puantage-calendar-table td {
+  min-width: 80px; /* Ensure columns maintain a minimum width */
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 8px;
+  font-size: 14px;
+  color: #333;
+  vertical-align: middle;
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+/* Activity box */
+.puantage-activity-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.puantage-activity-box span {
+  background-color: var(--dark-blue);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+/* Alternate row coloring */
+.puantage-calendar-table tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+/* Hover effect */
+.puantage-calendar-table tr:hover {
+  background-color: #e2e6ea;
+}
+
+/* Month selector */
+.puantage-month-selector {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1px;
+  align-items: center;
+}
+.puantage-month-selector span {
+   padding: 10px 10px;
+   margin: 10px;
+   margin-bottom: 0px;
+   margin-top: 10px;
+   border: none;
+   background-color: var(--light-blue);
+   color: black;
+   border-radius: 4px;
+   cursor: pointer;
+   font-size: 14px;
+}
+
+.puantage-month-selector button {
+  padding: 10px 10px;
+  margin: 10px;
+  margin-bottom: 0px;
+  border: none;
+  background-color: var(--light-blue);
+  color: black;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.puantage-month-selector button:hover {
+  background-color: var(--dark-blue);
+  color: white;
+}
+
+.puantage-month-selector span {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}

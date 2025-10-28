@@ -1,0 +1,35 @@
+.coordinator-homepage {
+    background-image: url('/images/kampus4.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    color: #fff;
+
+}
+
+.content-container h1 {
+    text-align: center;
+    margin-top: 40vh;
+}
+
+/* Reset body and html styles */
+html, body {
+
+    height: 100%;
+    width: 100%;
+}
+
+/* Ensure the container stretches fully */
+.coordinator-homepage {
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+}
+

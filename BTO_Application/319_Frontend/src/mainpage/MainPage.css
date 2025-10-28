@@ -1,0 +1,67 @@
+/* Header fixed at the top */
+.main-page__header {
+  position: fixed;
+  top: 0; /* Ensure it sticks to the top */
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--dark-blue);
+  color: var(--white);
+}
+
+.main-page {
+  margin: 0; /* Remove any margin */
+  padding: 0; /* Remove any padding */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--background-light);
+}
+
+.main-page {
+  margin-top: 130px; /* Header height + some space */
+}
+
+.main-page__content {
+  text-align: center;
+  margin: 50px auto;
+  max-width: 800px;
+}
+
+.main-page__footer {
+  background-color: var(--gray);
+  text-align: center;
+  padding: 20px;
+  color: var(--dark-blue);
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo {
+  height: 60px;
+  border-radius: 50%;
+}
+
+.logo-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--dark-blue);
+  margin: 0; /* Remove default margin */
+}
+
+.logo-subtitle {
+  font-size: 16px;
+  color: var(--dark-gray);
+  margin: 0; /* Remove default margin */
+}
+

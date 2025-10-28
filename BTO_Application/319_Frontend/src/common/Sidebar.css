@@ -1,0 +1,83 @@
+.sidebar {
+    width: 250px;
+    background-color: #013365;
+    font-size: 16px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    transition: left 0.3s ease, background-color 0.3s ease;
+    z-index: 1000;
+    color: white;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.close-icon {
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+}
+
+.sidebar-subtitle {
+    font-size: 14px;
+    font-weight: bold;
+    color: #d1d8e0;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin: 10px 15px;
+    letter-spacing: 0.7px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-link {
+    font-size: 14px;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 15px;
+    display: block;
+}
+
+.nav-link {
+    font-size: 14px;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 15px;
+    display: block;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-link:hover {
+    background-color: #004080;
+    border-radius: 4px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #444;
+    margin: 10px 0;
+}
+
+/* Apply DM Sans globally */
+
+
+/* Sidebar specific styles */
+.sidebar {
+    font-size: 14px; /* Adjust size as needed */
+    background-color: #013365;
+    color: white;
+}

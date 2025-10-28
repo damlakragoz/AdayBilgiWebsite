@@ -1,0 +1,184 @@
+.user-table {
+  width: 100%;
+  margin: 20px auto; /* Centers the table horizontally */
+  border-collapse: collapse; /* Makes table look seamless */
+  border: 1px solid #ddd; /* Subtle border for table */
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  font-family: Arial, sans-serif;
+}
+
+.user-table th,
+.user-table td {
+  padding: 12px 15px; /* Uniform padding */
+  border-bottom: 1px solid #ddd; /* Subtle border between rows */
+  text-align: center; /* Align text center */
+}
+
+.user-table th {
+  background-color: var(--background-light); /* Deep blue header background */
+  color: black; /* White text in headers */
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.user-table tr:hover {
+  background-color: #e6f7ff; /* Light blue on hover for better UX */
+  cursor: pointer;
+}
+
+/* Rounded corners for the top row */
+.user-table th:first-child {
+  border-top-left-radius: 8px;
+}
+.user-table th:last-child {
+  border-top-right-radius: 8px;
+}
+
+/* Rounded corners for the last row */
+.user-table tr:last-child td:first-child {
+  border-bottom-left-radius: 8px;
+}
+.user-table tr:last-child td:last-child {
+  border-bottom-right-radius: 8px;
+}
+
+.user-table {
+  width: 100%;
+  margin: 20px auto; /* Centers the table horizontally */
+  border-collapse: collapse; /* Makes table look seamless */
+  border: 1px solid #ddd; /* Subtle border for table */
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  font-family: Arial, sans-serif;
+}
+
+.user-table th,
+.user-table td {
+  padding: 12px 15px; /* Uniform padding */
+  border-bottom: 0.5px solid #ddd; /* Subtle border between rows */
+  text-align: center; /* Align text center */
+}
+
+.user-table th {
+  background-color: var(--background-light); /* Deep blue header background */
+  color: black; /* White text in headers */
+  font-weight: bold;
+  font-size: 14px;
+}
+
+
+.user-table tr:hover {
+  background-color: #e6f7ff; /* Light blue on hover for better UX */
+  cursor: pointer;
+}
+
+/* Rounded corners for the top row */
+.user-table th:first-child {
+  border-top-left-radius: 8px;
+}
+.user-table th:last-child {
+  border-top-right-radius: 8px;
+}
+
+/* Rounded corners for the last row */
+.user-table tr:last-child td:first-child {
+  border-bottom-left-radius: 8px;
+}
+.user-table tr:last-child td:last-child {
+  border-bottom-right-radius: 8px;
+}
+
+/* General Button Styles */
+.usertable-button {
+  border: 1px solid #ddd;
+  background: var(--gray);
+  color: black;
+  cursor: pointer;
+  border-radius: 8px;
+  margin: 5px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.usertable-button:hover {
+  background: var(--dark-blue);
+  color: white;
+}
+
+.usertable-button-add {
+  padding: 10px 20px;
+  background: var(--dark-blue);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.usertable-button-add:hover {
+  background: var(--orange);
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    position: relative;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    width: 400px;
+    max-width: 90%;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.popup-content h3 {
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--dark-blue);
+}
+
+.popup-content select {
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.popup-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.usertable-button:hover {
+    background-color: rgba(0, 0, 139, 0.8); /* Slightly lighter dark blue on hover */
+}
+
+.popup-close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.popup-close-icon:hover {
+    color: var(--dark-blue);
+}

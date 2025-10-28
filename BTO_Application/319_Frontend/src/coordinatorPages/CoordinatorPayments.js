@@ -1,0 +1,189 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "../coordinatorPages/CoordinatorPayments.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const CoordinatorPayments = () => {
+    const [allPayments, setAllPayments] = useState([]);
+    const [pendingPayments, setPendingPayments] = useState([]);
+    const token = localStorage.getItem("userToken");
+    const coordinatorEmail = localStorage.getItem("username");
+    const [loading, setLoading] = useState(false);
+
+    const translateStatus = (status) => {
+        switch (status) {
+            case "PENDING":
+                return "Onay Bekliyor";
+            case "APPROVED":
+                return "Onaylandı";
+            case "UPDATED":
+                return "Güncellendi";
+            default:
+                return status; // Eğer farklı bir durum varsa orijinal haliyle döner
+        }
+    };
+
+    const formatDateForTurkish = (isoDate) => {
+        const date = new Date(isoDate);
+        const options = {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            timeZone: 'Europe/Istanbul',
+        };
+        return new Intl.DateTimeFormat('tr-TR', options).format(date);
+    };
+
+    // Tüm ödeme bilgilerini getir
+    const fetchAllPayments = async () => {
+        try {
+            const response = await axios.get("http://localhost:8081/api/payments/getAll", {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            setAllPayments(response.data);
+        } catch (error) {
+            toast.error("Tüm ödemeler getirilirken hata uluştu:", error);
+        }
+    };
+
+    // Bekleyen ödemeleri getir
+    const fetchPendingPayments = async () => {
+        try {
+            const response = await axios.get("http://localhost:8081/api/payments/pending/getAll", {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            setPendingPayments(response.data);
+        } catch (error) {
+            toast.error("Tüm ödemeler getirilirken hata oluştu:", error);
+        }
+    };
+
+    // Ödemeyi onayla
+    const approvePayment = async (paymentId) => {
+        setLoading(true);
+        try {
+            const response = await axios.put(
+                `http://localhost:8081/api/coordinator/approve-payment`,
+                null,
+                {
+                    params: {
+                        paymentId: paymentId,
+                        coordinatorEmail: coordinatorEmail,
+                    },
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+
+            if (response.status === 200) {
+                toast.success("Ödeme başarıyla onaylandı.");
+                fetchPendingPayments();
+                fetchAllPayments();
+                setLoading(false);
+            }
+        } catch (error) {
+            console.error("Ödeme onaylanırken hata oluştu:", error);
+             toast.error("Ödeme onaylanırken hata oluştu.");
+             setLoading(false);
+        } finally {
+            setLoading(false);
+          }
+    };
+
+    // İlk yüklemede tüm ödemeleri ve bekleyen ödemeleri getir
+    useEffect(() => {
+        fetchAllPayments();
+        fetchPendingPayments();
+    }, []);
+
+    return (
+        <div className="pending-payments-main-container">
+            <h1 className="pending-payments-header-main">ÖDEMELER</h1>
+
+            <h2 className="pending-payments-header">BEKLEYEN ÖDEMELER</h2>
+            {pendingPayments.length > 0 ? (
+                <table className="pending-payments-table">
+                    <thead>
+                    <tr>
+                        <th>Ödeme ID</th>
+                        <th>Aktivite Türü</th>
+                        <th>Miktar (₺)</th>
+                        <th>Durum</th>
+                        <th>Aksiyon</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {pendingPayments.map((payment) => (
+                        <tr key={payment.id}>
+                            <td>{payment.id}</td>
+                            <td>
+                                {payment.fairId === null ? "Tur" : payment.tourId === null ? "Fuar" : ""}
+                            </td>
+                            <td>{payment.amount}</td>
+                            <td>{translateStatus(payment.status)}</td>
+                            <td>
+                                <button
+                                    className="pending-payments-approve-btn"
+                                    onClick={() => approvePayment(payment.id)}
+                                >
+                                    Onayla
+                                </button>
+                            </td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+            ) : (
+                <p>Bekleyen Ödeme Bulunamadı</p>
+            )}
+
+            <br/>
+            <h2 className="pending-payments-header">TÜM ÖDEMELER</h2>
+            {allPayments.length > 0 ? (
+                <table className="pending-payments-table">
+                    <thead>
+                    <tr>
+                        <th>Ödeme ID</th>
+                        <th>Miktar (₺)</th>
+                        <th>Durum</th>
+                        <th>Onaylayan Kişi</th>
+                        <th>Onaylanma Tarihi</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {allPayments.map((payment) => (
+                        <tr key={payment.id}>
+                            <td>{payment.id}</td>
+                            <td>{payment.amount}</td>
+                            <td>{translateStatus(payment.status)}</td>
+                            <td>{payment.approvedBy || "N/A"}</td>
+                            <td>{payment.approvalDate ? formatDateForTurkish(payment.approvalDate) : "N/A"}</td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+            ) : (
+                <p>Ödeme Bulunamadı</p>
+            )}
+
+            {/* Loading Screen (Overlay) */}
+            {loading && (
+                <div className="userform-loading-screen">
+                  <div className="spinner"></div>
+                  <p>Yükleniyor...</p>
+                </div>
+            )}
+        </div>
+
+    );
+};
+
+export default CoordinatorPayments;

@@ -1,0 +1,175 @@
+/* General Container */
+.bto-container {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.bto-container h1 {
+  font-weight: bolder;
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--dark-blue);
+  margin-bottom: 20px;
+}
+
+.bto-container h2 {
+  font-size: 28px; /* Larger font size for better emphasis */
+  font-weight: bold;
+  color: var(--dark-blue); /* Match your theme color */
+  margin-bottom: 20px; /* Adds spacing between the title and the content below */
+  text-align: center; /* Centers the text */
+  letter-spacing: 1px; /* Slightly increased letter spacing for a more refined look */
+  text-transform: capitalize; /* Capitalizes the first letter of each word */
+  border-bottom: 2px solid var(--light-blue);  /*Soft underline for separation */
+  padding-bottom: 10px; /* Padding to make space between the text and the border */
+}
+.bto-container h3 {
+  font-size: 26px; /* Larger font size for better emphasis */
+  font-weight: 550; /* Semi-bold for prominence */
+  color: var(--dark-blue); /* Match your theme color */
+  margin-bottom: 20px; /* Adds spacing between the title and the content below */
+  text-align: center; /* Centers the text */
+  letter-spacing: 1px; /* Slightly increased letter spacing for a more refined look */
+  text-transform: capitalize; /* Capitalizes the first letter of each word */
+
+}
+/* Page Navigation */
+.page-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+
+.page-navigation button:disabled {
+  background-color: var(--dark-blue);
+  color: white;
+  cursor: not-allowed;
+}
+
+/* Sections */
+.bto-container h2 {
+  font-size: 2rem;
+  color: var(--dark-blue);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Specific Section Containers */
+.bto-container div {
+  margin-bottom: 30px;
+}
+
+/* Conditional Lists */
+.TourGuideList,
+.CounselorList {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.TourGuideList ul, .CounselorList ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.TourGuideList li, .CounselorList li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.TourGuideList li:last-child, .CounselorList li:last-child {
+  border-bottom: none;
+}
+
+/* New Accounts Section */
+.new-accounts {
+  background-color: #e8f5e9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.new-accounts h3 {
+  font-size: 1.6rem;
+  color: var(--dark-blue);
+  margin-bottom: 10px;
+}
+
+.new-accounts p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Pagination Controls (if necessary) */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 8px 16px;
+  font-size: 1rem;
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination button:hover {
+  background-color: #303f9f;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.page-content {
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+}
+
+.page-content-exit {
+  opacity: 0;
+}
+
+/* Filter Buttons */
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-button {
+    padding: 10px 15px;
+    background-color: var(--light-blue);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    color: black;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filter-button:hover {
+    background-color: #2c7a7b;
+    color: #fff;
+}
+.filter-button.active {
+    background-color: #1c3b8e;
+    color: #fff;
+    border-color: #1c3b8e;
+}
